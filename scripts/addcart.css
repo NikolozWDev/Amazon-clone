@@ -1,0 +1,24 @@
+
+
+.mainadd {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transform: translateY(-30px);
+    gap: 5px;
+    opacity: 0;
+}
+.add-to-cart-button {
+    margin-top: -20px;
+}
+.mainjsadd {
+    opacity: 1;
+}
+.cart-add {
+    color: green;
+    font-size: 16px;
+}
+.addimg {
+    width: 20px;
+    height: 20px;
+}
