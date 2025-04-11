@@ -742,7 +742,9 @@ export function loadProducts() {
       }
       return new Product(productDetails);
     });
-  });
+  })/*.catch(() => {
+    console.log('Error')
+  });*/
 
   return promise;
 

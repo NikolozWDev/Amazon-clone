@@ -28,12 +28,28 @@ import { loadCart } from "../data/cart.js";
 // });
 
 
-
-    loadProducts().then(() => {
-        loadCart()}).then(() => {
+async function loadPage() {
+    try {
+        console.log('page Loaded');
+        await loadProducts();
+        await loadCart();
+    } catch(error) {
+        console.log(error);
+    };
     orderSummary();
     paymentSummary();
-});
+    return 'value is it loaded'
+  };
+  loadPage().then((value) => {
+    console.log(`next steps . . . ${value}`);
+  });
+
+
+//     loadProducts().then(() => {
+//         loadCart()}).then(() => {
+//     orderSummary();
+//     paymentSummary();
+// });
 
 
 
