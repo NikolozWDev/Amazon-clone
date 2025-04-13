@@ -731,22 +731,16 @@ export class Product {
 
 
 export let products = [];
-export function loadProducts() {
+export async function loadProducts() {
 
-  const promise = fetch('https://supersimplebackend.dev/products').then((response) => {
-    return response.json();
-  }).then((productsData) => {
-    products = productsData.map((productDetails) => {
+  const response = await fetch('https://supersimplebackend.dev/products');
+  const productsData = await response.json();
+  products = productsData.map((productDetails) => {
       if(productDetails.type === 'clothes') {
         return new Clothing(productDetails);
       }
       return new Product(productDetails);
     });
-  })/*.catch(() => {
-    console.log('Error')
-  });*/
-
-  return promise;
 
 };
 

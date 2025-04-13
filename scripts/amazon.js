@@ -6,10 +6,17 @@ import { Product } from '../data/products.js';
 
 
 
-  loadProducts()
-  .then(() => {
+async function loadPage2() {
+  await loadProducts();
   loadRenderFunction();
-});
+};
+
+loadPage2();
+
+//   loadProducts()
+//   .then(() => {
+//   loadRenderFunction();
+// });
 
 
 
@@ -232,7 +239,7 @@ while(i2 < elements.length) {
   let found = false;
   while(i3 < cart.length) {
 
-  if(cart[i3].productsId === cartpusher) {
+  if(cart[i3].productId === cartpusher) {
     cart[i3].quantity += 1;
     found = true;
     break;
@@ -245,7 +252,7 @@ while(i2 < elements.length) {
   if(!found) {
     cart.push(
       {
-        productsId: cartpusher,
+        productId: cartpusher,
         quantity: 1,
       },
     );

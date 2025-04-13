@@ -2,20 +2,24 @@ import { cart } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { deliveryOption } from "../data/deliveryOptions.js";
 import { moneyProblem } from "./utils1.js";
+import { orderPush } from "../data/orders.js";
+import { orders } from "../data/orders.js";
+import { loadProducts } from "../data/products.js";
 
-export function paymentSummary() {
+export async function paymentSummary() {
+  await loadProducts();
     let productCents = 0;
     let i17 = 0;
     let htmlpro = ``;
     while (i17 < cart.length) {
         let cartItem = cart[i17];
 
-        function getProduct(productsId) {  
+        function getProduct(productId) {  
             let matchingProduct = null;
         
             let i8 = 0;
             while (i8 < products.length) {
-                if (products[i8].id === productsId) {
+                if (products[i8].id === productId) {
                     matchingProduct = products[i8];
                 }
                 i8++;
@@ -31,13 +35,13 @@ export function paymentSummary() {
       
 }
 
-        const product = getProduct(cartItem.productsId);
+        const product = getProduct(cartItem.productId);
         productCents += product.priceCents * cartItem.quantity;
 
         let shippingCents = 0;
 
         cart.forEach(cartItem => {
-            let selectedDeliveryOption = localStorage.getItem(`selectedDeliveryOption-${cartItem.productsId}`);
+            let selectedDeliveryOption = localStorage.getItem(`selectedDeliveryOption-${cartItem.productId}`);
             if (selectedDeliveryOption !== null) {
                 let deliveryOptionIndex = Number(selectedDeliveryOption);
                 shippingCents += deliveryOption[deliveryOptionIndex].deliveryPrice;
@@ -79,7 +83,7 @@ export function paymentSummary() {
             <div class="payment-summary-money">$${moneyProblem(orderTotalCents)}</div>
           </div>
 
-          <button class="place-order-button button-primary">
+          <button class="place-order-button button-primary js-place-order">
             Place your order
           </button>
         `;
@@ -88,4 +92,35 @@ export function paymentSummary() {
         i17++;
     }
     document.querySelector('.mainpro').innerHTML = htmlpro;
+
+
+
+    // place order button
+    document.querySelector('.js-place-order').addEventListener('click', async () => {
+
+      try {
+        const response = await fetch('https://supersimplebackend.dev/orders', {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json',
+          },
+          body: JSON.stringify({
+            cart: cart,
+          })
+        });
+        const order = await response.json();
+        orderPush(order);
+        console.log(order)
+        console.log(cart)
+
+      } catch {
+        console.log('Error')
+      }
+
+      window.location.href = 'orders.html'
+      localStorage.removeItem('cart');
+
+    })
+
+    
 };

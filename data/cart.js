@@ -18,7 +18,7 @@ export let removeCart = (productfromid) => {
 
     let i10 = 0;
     while(i10 < cart.length) {
-        if(cart[i10].productsId !== productfromid) {
+        if(cart[i10].productId !== productfromid) {
             newcart.push(cart[i10]);
         };
         i10++;
@@ -30,12 +30,9 @@ export let removeCart = (productfromid) => {
 
 
 
-export function loadCart() {
+export async function loadCart() {
 
-  const promise = fetch('https://supersimplebackend.dev/cart').then((response) => {
-    console.log(response);
-  });
-
-  return promise;
+  const response = await fetch('https://supersimplebackend.dev/cart')
+  console.log(response);
 
 };

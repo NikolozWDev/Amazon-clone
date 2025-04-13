@@ -40,6 +40,7 @@ async function loadPage() {
     paymentSummary();
     return 'value is it loaded'
   };
+  
   loadPage().then((value) => {
     console.log(`next steps . . . ${value}`);
   });

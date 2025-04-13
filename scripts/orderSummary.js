@@ -12,15 +12,15 @@ let i5 = 0;
 let htmlsr = ``;
 while(i5 < cart.length) {
 
-  const productsIds = cart[i5].productsId;
-  const matchingProduct = getProduct(productsIds);
+  const productIds = cart[i5].productId;
+  const matchingProduct = getProduct(productIds);
 
-  function getProduct(productsIds) {
+  function getProduct(productIds) {
     let matchingProduct = null;
 
     let i8 = 0;
     while(i8 < products.length) {
-      if(products[i8].id === productsIds) {
+      if(products[i8].id === productIds) {
         matchingProduct = products[i8];
       };
       if(matchingProduct) {
@@ -36,7 +36,7 @@ while(i5 < cart.length) {
   let cartProduct = null;
   let i9 = 0;
   while (i9 < cart.length) {
-    if (cart[i9].productsId === productsIds) {
+    if (cart[i9].productId === productIds) {
       cartProduct = cart[i9];
       break;
     }
@@ -190,7 +190,7 @@ function handleDeliverySelection(matchingProduct) {
 // On page load, restore selected delivery option from localStorage
 window.onload = function() {
   cart.forEach((cartItem) => {
-    const matchingProduct = products.find(product => product.id === cartItem.productsId);
+    const matchingProduct = products.find(product => product.id === cartItem.productId);
     if (matchingProduct) {
       let selectedOption = localStorage.getItem(`selectedDeliveryOption-${matchingProduct.id}`);
       if (selectedOption !== null) {
@@ -257,7 +257,7 @@ while (i14 < updateSave.length) {
 
     let i15 = 0;
     while(i15 < cart.length) {
-      if(cart[i15].productsId === productId) {
+      if(cart[i15].productId === productId) {
         cart[i15].quantity = Number(newQuantity);
         break;
       };

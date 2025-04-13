@@ -18,7 +18,7 @@ export class Cart {
         let i3 = 0;
 
         while (i3 < this.cartItems.length) {
-            if (this.cartItems[i3].productsId === productId) {
+            if (this.cartItems[i3].productId === productId) {
                 this.cartItems[i3].quantity += 1;
                 found = true;
                 break;
@@ -28,7 +28,7 @@ export class Cart {
 
         if (!found) {
             this.cartItems.push({
-                productsId: productId,
+                productId: productId,
                 quantity: 1,
             });
             i3 = this.cartItems.length - 1;
@@ -45,7 +45,7 @@ export class Cart {
     };
 
     removeCart(productId) {
-        this.cartItems = this.cartItems.filter(item => item.productsId !== productId);
+        this.cartItems = this.cartItems.filter(item => item.productId !== productId);
         this.saveToStorage();
     };
 
