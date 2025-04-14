@@ -213,3 +213,7 @@
 .dark-mode-style4 {
   border-radius: 50%;
 }
+
+.mainadd {
+  pointer-events: none;
+};

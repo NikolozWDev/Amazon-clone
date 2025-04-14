@@ -295,43 +295,43 @@ while(i2 < elements.length) {
 
 
 
-// dark mode
+// // dark mode
 
-let dmjs = document.querySelector('#dm-js');
-let dmjs2 = document.querySelector('#dm-js2');
+// let dmjs = document.querySelector('#dm-js');
+// let dmjs2 = document.querySelector('#dm-js2');
 
-// Function to toggle dark mode
-function toggleDarkMode() {
-  dmjs.classList.toggle('dmpro');
-  dmjs2.classList.toggle('dmpro2');
-  document.querySelector('#bodydark').classList.toggle('bodydarkstyle');
+// // Function to toggle dark mode
+// function toggleDarkMode() {
+//   dmjs.classList.toggle('dmpro');
+//   dmjs2.classList.toggle('dmpro2');
+//   document.querySelector('#bodydark').classList.toggle('bodydarkstyle');
 
-  document.querySelectorAll('.product-container').forEach(element => {
-    element.classList.toggle('dark-mode-style');
-  });
-  document.querySelectorAll('.add-to-cart-button').forEach(element2 => {
-    element2.classList.toggle('dark-mode-style2');
-  });
-  document.querySelectorAll('.pro555').forEach(element3 => {
-    element3.classList.toggle('dark-mode-style3');
-  });
-  document.querySelectorAll('.product-image').forEach(element4 => {
-    element4.classList.toggle('dark-mode-style4');
-  });
+//   document.querySelectorAll('.product-container').forEach(element => {
+//     element.classList.toggle('dark-mode-style');
+//   });
+//   document.querySelectorAll('.add-to-cart-button').forEach(element2 => {
+//     element2.classList.toggle('dark-mode-style2');
+//   });
+//   document.querySelectorAll('.pro555').forEach(element3 => {
+//     element3.classList.toggle('dark-mode-style3');
+//   });
+//   document.querySelectorAll('.product-image').forEach(element4 => {
+//     element4.classList.toggle('dark-mode-style4');
+//   });
 
-  // Save mode state in localStorage
-  const isDarkMode = document.querySelector('#bodydark').classList.contains('bodydarkstyle');
-  localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
-}
+//   // Save mode state in localStorage
+//   const isDarkMode = document.querySelector('#bodydark').classList.contains('bodydarkstyle');
+//   localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+// }
 
-// Click event for dark mode toggle
-dmjs.addEventListener('click', toggleDarkMode);
-window.addEventListener('load', () => {
-  const savedMode = localStorage.getItem('darkMode');
-  if (savedMode === 'enabled') {
-    toggleDarkMode(); // ჩართავს dark mode-ს, თუ შენახულია
-  }
-});
+// // Click event for dark mode toggle
+// dmjs.addEventListener('click', toggleDarkMode);
+// window.addEventListener('load', () => {
+//   const savedMode = localStorage.getItem('darkMode');
+//   if (savedMode === 'enabled') {
+//     toggleDarkMode(); // ჩართავს dark mode-ს, თუ შენახულია
+//   }
+// });
 
 
 

@@ -5,6 +5,8 @@ import { moneyProblem } from "./utils1.js";
 import { orderPush } from "../data/orders.js";
 import { orders } from "../data/orders.js";
 import { loadProducts } from "../data/products.js";
+import { clicked } from "./checkout.js";
+import { saveClick } from "./checkout.js";
 
 export async function paymentSummary() {
   await loadProducts();
@@ -98,6 +100,12 @@ export async function paymentSummary() {
     // place order button
     document.querySelector('.js-place-order').addEventListener('click', async () => {
 
+      document.querySelector('.js-place-order').classList.add('jspractice')
+      setTimeout(() => {
+        document.querySelector('.js-place-order').classList.remove('jspractice')
+      }, 5000)
+
+      saveClick()
       try {
         const response = await fetch('https://supersimplebackend.dev/orders', {
           method: 'POST',
@@ -117,10 +125,11 @@ export async function paymentSummary() {
         console.log('Error')
       }
 
-      window.location.href = 'orders.html'
+
       localStorage.removeItem('cart');
+      window.location.href = 'orders.html'
+      console.log(clicked)
 
     })
-
     
 };

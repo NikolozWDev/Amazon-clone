@@ -8,6 +8,13 @@ import { loadProducts } from "../data/products.js";
 import { loadCart } from "../data/cart.js";
 
 
+// with order products
+export let clicked = JSON.parse(localStorage.getItem('click')) || 0;
+export function saveClick() {
+  clicked += 1;
+  localStorage.setItem('click', JSON.stringify(clicked));
+};
+
 
 // Promise.all([
 //     new Promise((resolve) => {
