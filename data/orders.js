@@ -18,7 +18,7 @@ function saveOrder() {
     localStorage.setItem('orders', JSON.stringify(orders));
 };
 
-async function generateOrdersHTML() {
+export async function generateOrdersHTML() {
   await loadProducts();
 
   const ordersGrid = document.querySelector('.orders-grid');
@@ -60,7 +60,7 @@ async function generateOrdersHTML() {
           </button>
         </div>
         <div class="product-actions">
-          <a href="tracking.html">
+          <a href="tracking.html?orderId=${order.id}&productId=${product.id}">
             <button class="track-package-button button-secondary">Track package</button>
           </a>
         </div>
