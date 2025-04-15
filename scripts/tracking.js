@@ -18,7 +18,7 @@ async function generateTracking() {
             productMeId = products[i];
         };
     };
-    
+
 
     const productId = url.searchParams.get('productId');
     const orderId = url.searchParams.get('orderId');
@@ -64,6 +64,16 @@ async function generateTracking() {
         `;
 
     document.querySelector('.order-tracking').innerHTML = generateHTML;
+
+
+    // cart total calculation
+    let sumTotalCart = 0;
+    let i22 = 0;
+    while(i22 < cart.length) {
+        sumTotalCart += cart[i22].quantity
+        i22++;
+    };
+    document.querySelector('.cart-quantity').innerHTML = sumTotalCart;
 
 
 };
