@@ -10,8 +10,20 @@ export function orderSummary() {
 
 let i5 = 0;
 let htmlsr = ``;
-while(i5 < cart.length) {
+// cart remover !
+function cartRemover() {
+if(cart.length === 0) {
+  let html0 = `
+  <p class="helper-vandal">Your cart is empty.
+  <a href="amazon.html"><button class="productButton">View products</button></a>
+  </p>
+  `
+  document.querySelector('.checkout-grid').innerHTML = html0;
+}
+}
+cartRemover()
 
+while(i5 < cart.length) {
   const productIds = cart[i5].productId;
   const matchingProduct = getProduct(productIds);
 
@@ -128,7 +140,6 @@ function calItem() {
             </div>
           </div>
     `
-
     htmlsr += htmlp2;
 
     i5++;
@@ -339,7 +350,7 @@ let button = deleteb[i9]
       document.querySelector('#items').innerHTML = `${cartItems} items`;
     }
     calItem();
-
+    cartRemover()
     saveToStorage();
 
   });
@@ -348,5 +359,4 @@ let button = deleteb[i9]
 };
 
 }
-
 console.log(dayjs().subtract(10, 'days').format('dddd, MMMM D'));

@@ -103,3 +103,15 @@ input:focus {
 .jspractice {
   pointer-events: none;
 }
+
+.productButton {
+  background-color: rgb(255, 216, 20);
+  font-size: 16px;
+  border-radius: 8px;
+  padding: 10px 15px 10px 15px;
+  border: none;
+}
+.helper-vandal {
+  width: 200px;
+  line-height: 40px;
+}
