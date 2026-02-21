@@ -1,4 +1,4 @@
-Amazon clone link : ---> https://nikolozwdev.github.io/Amazon-clone/amazon.html <---
+This is Amazon clone link : ---> https://nikolozwdev.github.io/Amazon-clone/amazon.html <---
 
 ## Gallery
 
