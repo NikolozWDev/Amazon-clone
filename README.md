@@ -1,4 +1,4 @@
-# Amazon Clone
+# Amazon Website
 
 A frontend e-commerce application inspired by Amazon, built to practice building larger interfaces, managing application state, and creating a realistic shopping experience.
 
