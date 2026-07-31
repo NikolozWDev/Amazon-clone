@@ -7,7 +7,7 @@ The project includes multiple pages that simulate the core flow of an online sto
 ## Website
 
 **Live Demo:**  
-https://nikolozwdev.github.io/Amazon-clone/amazon.html
+https://nikolozwdev.github.io/Amazon-Web/amazon.html
 
 ## About
 
